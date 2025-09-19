@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación - Chronos Shield</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style-docs.css">
+</head>
+<body>
+    <header class="docs-header">
+        <div class="header-content">
+            <div class="logo-title">
+                <img src="assets/images/logo.png" alt="Logo Chronos Shield" class="logo">
+                <h1>Chronos Shield</h1>
+            </div>
+            <nav class="docs-nav">
+                <ul>
+                    <li><a href="#introduccion" class="menu-item active">Introducción</a></li>
+                    <li><a href="#instalacion" class="menu-item">Instalación & Configuración</a></li>
+                    <li><a href="#panel-web" class="menu-item">Panel Web</a></li>
+                    <li><a href="#detecciones" class="menu-item">Detecciones</a></li>
+                    <li><a href="#acciones" class="menu-item">Acciones y Sanciones</a></li>
+                    <li><a href="#nube" class="menu-item">Nube Chronos</a></li>
+                    <li><a href="#seguridad" class="menu-item">Seguridad y Privacidad</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="docs-main">
+        <section id="introduccion" class="docs-section active">
+            <div class="section-content">
+                <div class="intro-container">
+                    <img src="assets/images/logo.png" alt="Logo grande de Chronos" class="intro-logo">
+                    <h2>Documentación Chronos Shield</h2>
+                    <p>Aquí encontrarás toda la información sobre Chronos si no estás seguro aún de contratar nuestros servicios.</p>
+                    <div class="intro-buttons">
+                        <a href="https://discord.com/invite/sS6B8Cy9" class="btn btn-discord" target="_blank">Comenzar</a>
+                        <a href="https://discord.com/invite/sS6B8Cy9" class="btn btn-discord" target="_blank">Soporte</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="instalacion" class="docs-section">
+            <div class="section-content">
+                <h2>Instalación y cómo Configurar Chronos Shield en tu Juego:</h2>
+                <ol>
+                    <li>Descarga el paquete de Chronos e impórtalo en tu proyecto de Roblox Studio.</li>
+                    <li>Coloca el script principal en ServerScriptService.</li>
+                    <li>Configura tu API Key y la URL del servidor en el archivo de ajustes.</li>
+                    <li>Sube el juego a Roblox y asegúrate de habilitar HTTP Requests en la configuración.</li>
+                    <li>Ingresa al Panel Web con tu cuenta y enlaza tu juego mediante su Game ID.</li>
+                    <li>Verifica que los eventos estén llegando al panel con los primeros logs de prueba.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="panel-web" class="docs-section">
+            <div class="section-content">
+                <h2>Panel Web</h2>
+                <p>El panel web es la interfaz principal para gestionar y supervisar tu juego y el anticheat. Incluye:</p>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <h3>Consola del Juego</h3>
+                        <p>Permite ver en tiempo real chats, joins, errores y sanciones aplicadas. También ofrece botones para apagar, reiniciar o pausar la instancia del juego.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Consola AntiCheat</h3>
+                        <p>Muestra todas las detecciones de trampas, scripts prohibidos, usuarios sospechosos y acciones tomadas automáticamente (kick, ban, limitaciones temporales).</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Lista de Jugadores</h3>
+                        <p>Visualiza quiénes están online, offline o baneados, junto con información básica como ID, dispositivo y estado dentro del juego.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Logs y Evidencias</h3>
+                        <p>Almacena los eventos sospechosos, capturas de pruebas y registros de sanciones. Se pueden filtrar por jugador, fecha o tipo de detección.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Estadísticas</h3>
+                        <p>Ofrece métricas de comportamiento de los jugadores, historial de conexiones, detecciones acumuladas y puntajes de riesgo.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Alertas en Tiempo Real</h3>
+                        <p>Notificaciones instantáneas sobre actividades sospechosas, accesibles desde cualquier dispositivo conectado al panel.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="detecciones" class="docs-section">
+            <div class="section-content">
+                <h2>Detecciones</h2>
+                <p>Esta sección explica qué tipos de trampas y comportamientos sospechosos puede identificar Chronos:</p>
+                <ul>
+                    <li><strong>Scripts prohibidos:</strong> Detecta cualquier script o exploit no autorizado que altere el juego o la experiencia de otros jugadores.</li>
+                    <li><strong>Comportamiento anómalo:</strong> Registra acciones imposibles, como movimientos sobrehumanos, teleports no válidos o inputs repetitivos de bots.</li>
+                    <li><strong>Modificaciones del cliente:</strong> Verifica cambios en los archivos del juego o inconsistencias en los heartbeats y firmas de las acciones.</li>
+                    <li><strong>VPN / Proxy / IP sospechosa:</strong> Identifica conexiones a través de servicios de anonimización, proxies o IPs residenciales sospechosas.</li>
+                    <li><strong>Multi-cuenta y compartición de dispositivos:</strong> Detecta correlaciones entre cuentas que podrían indicar fraude o abuso del sistema.</li>
+                    <li><strong>Logs y pruebas:</strong> Cada detección se guarda con evidencia para revisarla en el panel o aplicar sanciones posteriormente.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="acciones" class="docs-section">
+            <div class="section-content">
+                <h2>Acciones y Sanciones</h2>
+                <p>Chronos no solo detecta trampas, también decide cómo actuar según la gravedad de la infracción:</p>
+                <ul>
+                    <li><strong>Advertencias (Warns):</strong> Notifica al jugador sobre comportamientos sospechosos sin bloquear su acceso.</li>
+                    <li><strong>Kick (Expulsión temporal):</strong> Retira al jugador del juego por un período corto si se confirma actividad sospechosa.</li>
+                    <li><strong>Ban (Prohibición):</strong> Bloquea permanentemente a los usuarios que cometan trampas graves o repetidas.</li>
+                    <li><strong>Mitigaciones temporales:</strong> Limita ciertas acciones del jugador (chat, movimientos, interacciones) mientras se confirma la infracción mediante la nube.</li>
+                    <li><strong>Registro de acciones:</strong> Todas las sanciones quedan registradas con evidencia en los logs para auditoría y posibles apelaciones.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="nube" class="docs-section">
+            <div class="section-content">
+                <h2>Nube Chronos</h2>
+                <p>La Nube Chronos complementa el anticheat en tiempo real, ofreciendo procesamiento seguro y análisis más profundo:</p>
+                <ul>
+                    <li><strong>Procesamiento externo:</strong> Las instancias del juego envían datos relevantes de los jugadores a la nube para inspección sin afectar el rendimiento del juego.</li>
+                    <li><strong>Detección avanzada:</strong> Se analizan comportamientos sospechosos, patrones de cheats y conexiones VPN/Proxy con más tiempo y recursos que en la instancia local.</li>
+                    <li><strong>Mitigaciones inteligentes:</strong> Solo se aplican sanciones definitivas cuando el sistema confirma fraude, evitando falsos positivos. Mientras tanto, se pueden aplicar limitaciones temporales.</li>
+                    <li><strong>Escalabilidad:</strong> Permite procesar múltiples instancias y jugadores simultáneamente, distribuyendo la carga entre varios servidores.</li>
+                    <li><strong>Integridad y estabilidad:</strong> Al procesar los datos en la nube, las detecciones son más precisas y las pruebas quedan registradas para auditorías.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="seguridad" class="docs-section">
+            <div class="section-content">
+                <h2>Seguridad y Privacidad</h2>
+                <p>Chronos protege tanto tu juego como la información de los jugadores:</p>
+                <ul>
+                    <li><strong>Protección de datos:</strong> Se almacenan solo los datos necesarios para detecciones y sanciones; la información sensible se encripta y se maneja de forma segura.</li>
+                    <li><strong>Transmisión segura:</strong> Toda comunicación entre la instancia del juego, la nube y el panel web se realiza mediante conexiones cifradas (HTTPS/TLS).</li>
+                    <li><strong>Control de accesos:</strong> El panel web cuenta con roles y permisos para limitar quién puede ver información o aplicar sanciones.</li>
+                    <li><strong>Auditoría y logs:</strong> Cada acción del sistema y del administrador queda registrada, garantizando trazabilidad y soporte para apelaciones.</li>
+                    <li><strong>Buenas prácticas:</strong> Se recomienda no compartir claves API, actualizar scripts y mantener configuraciones de seguridad al día para minimizar riesgos.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/docs.js"></script>
+</body>
+</html>

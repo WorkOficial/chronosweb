@@ -1,0 +1,377 @@
+/* ============================= */
+/* Variables de Colores           */
+/* ============================= */
+:root {
+    --dark-blue-bg: #0A192F;
+    --medium-dark-blue: #1A2E4B;
+    --accent-blue: #00AEEF;
+    --light-blue-text: #66CCFF;
+    --text-color-primary: #E0E6F0;
+    --text-color-secondary: #ABB8C3;
+    --border-color: rgba(0, 174, 239, 0.3);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+/* ============================= */
+/* Base y Body                   */
+/* ============================= */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark-blue-bg);
+    color: var(--text-color-primary);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* ============================= */
+/* Header de Documentación       */
+/* ============================= */
+.docs-header {
+    background-color: var(--medium-dark-blue);
+    padding: 20px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    width: 100%;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-title .logo {
+    height: 60px;
+    filter: drop-shadow(0 0 8px rgba(0, 174, 239, 0.6));
+}
+
+.logo-title h1 {
+    font-size: 2em;
+    color: var(--text-color-primary);
+    margin: 0;
+}
+
+/* ============================= */
+/* Navegación                     */
+/* ============================= */
+.docs-nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.docs-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.docs-nav a {
+    color: var(--text-color-secondary);
+    text-decoration: none;
+    font-size: 1.05em;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.docs-nav a:hover,
+.docs-nav a.active {
+    background-color: var(--accent-blue);
+    color: var(--dark-blue-bg);
+    font-weight: bold;
+    transform: translateY(-2px);
+}
+
+/* ============================= */
+/* Contenido Principal           */
+/* ============================= */
+.docs-main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.docs-section {
+    background-color: var(--medium-dark-blue);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px var(--shadow-color);
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.docs-section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.docs-section h2 {
+    color: var(--accent-blue);
+    font-size: 2.5em;
+    margin-top: 0;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.docs-section p {
+    color: var(--text-color-secondary);
+    font-size: 1.1em;
+}
+
+.docs-section ul, ol {
+    color: var(--text-color-secondary);
+    font-size: 1em;
+    line-height: 1.8;
+    padding-left: 20px;
+}
+
+.docs-section li {
+    margin-bottom: 15px;
+}
+
+.docs-section strong {
+    color: var(--text-color-primary);
+}
+
+/* ============================= */
+/* Introducción y Botones        */
+/* ============================= */
+.intro-container {
+    text-align: center;
+}
+
+.intro-logo {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.intro-container h2 {
+    font-size: 3em;
+    margin: 0 0 15px 0;
+}
+
+.intro-container p {
+    font-size: 1.2em;
+}
+
+.intro-buttons {
+    margin-top: 30px;
+}
+
+.btn-discord {
+    background-color: #5865F2;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin: 0 10px;
+    display: inline-block;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.btn-discord:hover {
+    background-color: #4454E6;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* ============================= */
+/* Lista de Features             */
+/* ============================= */
+.features-list .feature-item {
+    background-color: var(--dark-blue-bg);
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--accent-blue);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item h3 {
+    color: var(--light-blue-text);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+/* ============================= */
+/* Responsividad                 */
+/* ============================= */
+@media (max-width: 992px) {
+    .header-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .docs-nav ul {
+        gap: 15px;
+    }
+    .docs-section {
+        padding: 40px 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .docs-header {
+        padding: 15px;
+    }
+    .logo-title h1 {
+        font-size: 1.5em;
+    }
+    .docs-nav a {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+    .docs-section h2 {
+        font-size: 2em;
+    }
+    .intro-logo {
+        width: 150px;
+    }
+}
+/* ... [CÓDIGO ANTERIOR SIN CAMBIOS] ... */
+
+/* Header de Documentación */
+.docs-header {
+    background-color: var(--medium-dark-blue);
+    padding: 20px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    width: 100%;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-title .logo {
+    height: 60px;
+    filter: drop-shadow(0 0 5px rgba(0, 174, 239, 0.5));
+}
+
+.logo-title h1 {
+    font-size: 2em;
+    color: var(--text-color-primary);
+    margin: 0;
+}
+
+/* ... [CÓDIGO ANTERIOR SIN CAMBIOS] ... */
+
+/* Contenido principal */
+.docs-main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.docs-section {
+    background-color: var(--medium-dark-blue);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px var(--shadow-color);
+    margin-bottom: 40px;
+    display: none;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+.docs-section.active {
+    display: block;
+    opacity: 1;
+}
+
+.section-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.docs-section h2 {
+    color: var(--accent-blue);
+    font-size: 2.5em;
+    margin-top: 0;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.docs-section p {
+    color: var(--text-color-secondary);
+    font-size: 1.1em;
+}
+
+.docs-section ul, ol {
+    color: var(--text-color-secondary);
+    font-size: 1em;
+    line-height: 1.8;
+}
+
+.docs-section li {
+    margin-bottom: 15px;
+}
+
+.docs-section strong {
+    color: var(--text-color-primary);
+}
+
+.intro-container {
+    text-align: center;
+}
+
+/* ESTE ES EL CAMBIO CLAVE PARA EL LOGO GRANDE */
+.intro-logo {
+    width: 250px; /* Aumentado a 250px para hacerlo más grande */
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(0, 174, 239, 0.7)); /* Sombra para que se vea mejor */
+}
+
+/* ... [CÓDIGO POSTERIOR SIN CAMBIOS] ... */

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chronos Shield</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --dark-blue-bg: #0A192F; --medium-dark-blue: #1A2E4B; --accent-blue: #00AEEF;
+      --light-blue-text: #66CCFF; --text-color-primary: #E0E6F0; --text-color-secondary: #ABB8C3;
+      --border-color: rgba(0, 174, 239, 0.3); --shadow-color: rgba(0, 0, 0, 0.4);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--dark-blue-bg);
+      color: var(--text-color-primary); line-height: 1.6; overflow-x: hidden; }
+    header { background-color: var(--medium-dark-blue); padding: 15px 20px; box-shadow: 0 4px 10px var(--shadow-color);
+      position: sticky; top: 0; z-index: 1000; }
+    .header-container { display: flex; justify-content: space-between; align-items: center; max-width: 1300px; margin: 0 auto; }
+    .main-nav ul { list-style: none; display: flex; gap: 30px; }
+    .main-nav a { color: var(--text-color-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
+    .main-nav a:hover { color: var(--accent-blue); }
+    .logo { height: 55px; filter: drop-shadow(0 0 5px rgba(0, 174, 239, 0.5)); }
+    .hero-section { text-align: center; padding: 100px 20px; position: relative; overflow: hidden; }
+    .hero-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" opacity="0.1"><circle cx="25" cy="25" r="3" fill="%2366CCFF"/><circle cx="75" cy="75" r="3" fill="%2366CCFF"/></svg>') repeat; opacity: 0.1; }
+    .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+    .hero-section h1 { font-size: 3.5em; margin: 0 0 15px 0; color: var(--accent-blue); font-weight: 700; }
+    .hero-section p { font-size: 1.2em; margin: 20px auto; color: var(--light-blue-text); }
+    .hero-buttons { margin-top: 30px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+    .btn { padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: all 0.3s ease; }
+    .btn-primary { background-color: var(--accent-blue); color: var(--dark-blue-bg); }
+    .btn-primary:hover { background-color: #00CFFF; transform: translateY(-3px); }
+    .btn-secondary { background-color: transparent; color: var(--text-color-primary); border: 2px solid var(--accent-blue); }
+    .btn-secondary:hover { background-color: var(--dark-blue-bg); transform: translateY(-3px); }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;
+      padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+    .feature-card { background-color: var(--medium-dark-blue); padding: 25px; border-radius: 10px;
+      box-shadow: 0 5px 15px var(--shadow-color); border-left: 4px solid var(--accent-blue); transition: transform 0.3s ease; }
+    .feature-card:hover { transform: translateY(-5px); }
+    .feature-card h2 { color: var(--accent-blue); font-size: 1.4em; margin-bottom: 15px; }
+    .feature-card p, .feature-card li { color: var(--text-color-secondary); line-height: 1.6; }
+    .feature-card ul { list-style: none; padding: 0; margin: 0; }
+    .feature-card li { margin-bottom: 10px; display: flex; align-items: center; }
+    .sidebar-icon { margin-right: 10px; color: var(--accent-blue); }
+    .call-to-action-section { display: flex; justify-content: center; flex-wrap: wrap; padding: 40px 20px; gap: 25px; }
+    .call-to-action-card { flex: 1; min-width: 300px; background: var(--medium-dark-blue); padding: 30px;
+      border-radius: 10px; box-shadow: 0 5px 15px var(--shadow-color); text-align: center; }
+    .call-to-action-card h3 { color: var(--accent-blue); font-size: 1.6em; margin-bottom: 15px; }
+    .call-to-action-card p { color: var(--light-blue-text); line-height: 1.6; }
+    footer { background-color: var(--medium-dark-blue); color: var(--text-color-secondary); text-align: center;
+      padding: 25px 20px; margin-top: 40px; font-size: 0.9em; }
+    @media (max-width: 768px) {
+      .header-container { flex-direction: column; gap: 15px; }
+      .main-nav ul { justify-content: center; flex-wrap: wrap; gap: 15px; }
+      .hero-section h1 { font-size: 2.5em; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .btn { width: 200px; text-align: center; }
+      .features-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo-container">
+        <a href="index.html"><img src="assets/images/logo.png" alt="Chronos Shield Logo" class="logo"></a>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="documentacion.html">Documentación</a></li>
+          <li><a href="https://discord.gg/sS6B8Cy9" target="_blank">Soporte</a></li>
+          <li><a href="clientesinicio.html">Área de Clientes</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>Chronos Shield</h1>
+      <p class="subtitle">Protegiendo tu juego, siempre contigo.</p>
+      <p>Con nuestros planes accedes a las mejores herramientas de seguridad para Roblox: eficaces, modernas y sin falsos positivos.</p>
+      <div class="hero-buttons">
+        <a href="clientesinicio.html" class="btn btn-primary">Área de Clientes</a>
+        <a href="https://discord.gg/sS6B8Cy9" class="btn btn-secondary" target="_blank">Comenzar</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-grid">
+    <div class="feature-card">
+      <h2><i class="fas fa-shield-alt"></i> Seguridad</h2>
+      <ul>
+        <li><i class="fas fa-user-slash sidebar-icon"></i> Bloqueo de VPN</li>
+        <li><i class="fas fa-ban sidebar-icon"></i> Anti-cheats</li>
+        <li><i class="fas fa-external-link-alt sidebar-icon"></i> Bloqueo de programas externos</li>
+      </ul>
+    </div>
+
+    <div class="feature-card">
+      <h2><i class="fas fa-id-card"></i> Perfil Completo</h2>
+      <p>Consulta toda la información de un jugador desde su perfil con un solo clic.</p>
+    </div>
+
+    <div class="feature-card">
+      <h2><i class="fas fa-cogs"></i> Políticas a Medida</h2>
+      <p>Define reglas flexibles para gestionar el tráfico de tu sistema.</p>
+    </div>
+
+    <div class="feature-card">
+      <h2><i class="fas fa-network-wired"></i> Bloqueo de IPs</h2>
+      <p>Evita que usuarios se oculten tras redes P2P con IPs residenciales.</p>
+    </div>
+
+    <div class="feature-card">
+      <h2><i class="fas fa-robot"></i> Inteligencia Automática</h2>
+      <p>Modelos inteligentes que refuerzan la protección de manera proactiva.</p>
+    </div>
+  </section>
+
+  <section class="call-to-action-section">
+    <div class="call-to-action-card">
+      <h3><i class="fas fa-search"></i> Información de Usuarios</h3>
+      <p>Encuentra todo lo que necesitas sin complicaciones. Nunca fue tan fácil.</p>
+    </div>
+    <div class="call-to-action-card">
+      <h3><i class="fas fa-globe"></i> Verificación en tu Web</h3>
+      <p>Obtén un panel para verificar usuarios, actividad y accesos en tu juego.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 <strong>Chronos Shield</strong>. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

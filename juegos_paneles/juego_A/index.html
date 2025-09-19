@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control - Chronos Shield</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/style-panel.css">
+</head>
+<body>
+    <div class="panel-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../../assets/images/logo.png" alt="Logo Chronos" class="panel-logo">
+                <h2>Chronos Panel</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#dashboard" class="nav-item active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#game-console" class="nav-item"><i class="fas fa-gamepad"></i> Consola del Juego</a></li>
+                    <li><a href="#anticheat-console" class="nav-item"><i class="fas fa-shield-alt"></i> Consola AntiCheat</a></li>
+                    <li><a href="#players" class="nav-item"><i class="fas fa-users"></i> Lista de Jugadores</a></li>
+                    <li><a href="#logs" class="nav-item"><i class="fas fa-clipboard-list"></i> Logs y Evidencias</a></li>
+                    <li><a href="#stats" class="nav-item"><i class="fas fa-chart-line"></i> Estadísticas</a></li>
+                    <li><a href="#configs" class="nav-item"><i class="fas fa-folder-open"></i> Carpetas de Configuración</a></li>
+                    <li><a href="#api" class="nav-item"><i class="fas fa-key"></i> API del Panel</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="top-bar">
+                <h1 id="section-title">Dashboard</h1>
+                <div class="notifications-area">
+                    <span id="notification-bell"><i class="fas fa-bell"></i></span>
+                    <div class="alerts-container" id="alerts-container">
+                        </div>
+                </div>
+            </div>
+
+            <section id="dashboard" class="content-section active">
+                <div class="dashboard-grid">
+                    <div class="stat-card stat-total-players">
+                        <h3>Jugadores Totales</h3>
+                        <p id="total-players-stat">Cargando...</p>
+                    </div>
+                    <div class="stat-card stat-online">
+                        <h3>En Línea</h3>
+                        <p id="online-players-stat">Cargando...</p>
+                    </div>
+                    <div class="stat-card stat-detections">
+                        <h3>Detecciones Hoy</h3>
+                        <p id="daily-detections-stat">Cargando...</p>
+                    </div>
+                    <div class="stat-card stat-risk">
+                        <h3>Promedio de Riesgo</h3>
+                        <p id="avg-risk-stat">Cargando...</p>
+                    </div>
+                </div>
+                <div class="dashboard-graph">
+                    <h3>Actividad del Servidor</h3>
+                    <canvas id="activityChart"></canvas>
+                </div>
+            </section>
+
+            <section id="game-console" class="content-section">
+                <h2>Consola del Juego</h2>
+                <div class="console-controls">
+                    <button class="control-btn btn-green"><i class="fas fa-play"></i> Iniciar</button>
+                    <button class="control-btn btn-blue"><i class="fas fa-pause"></i> Pausar</button>
+                    <button class="control-btn btn-orange"><i class="fas fa-sync-alt"></i> Reiniciar</button>
+                    <button class="control-btn btn-red"><i class="fas fa-power-off"></i> Apagar</button>
+                </div>
+                <div class="console-log" id="game-log">
+                    </div>
+            </section>
+
+            <section id="anticheat-console" class="content-section">
+                <h2>Consola AntiCheat</h2>
+                <div class="console-log anticheat-log" id="anticheat-log">
+                    </div>
+            </section>
+
+            <section id="players" class="content-section">
+                <h2>Lista de Jugadores</h2>
+                <table class="player-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Estado</th>
+                            <th>Dispositivo</th>
+                            <th>Puntaje de Riesgo</th>
+                            <th>Última Conexión</th>
+                        </tr>
+                    </thead>
+                    <tbody id="player-list-body">
+                        </tbody>
+                </table>
+            </section>
+
+            <section id="logs" class="content-section">
+                <h2>Logs y Evidencias</h2>
+                <div class="log-filters">
+                    <label>Filtrar por:</label>
+                    <input type="date" id="log-date-filter">
+                    <select id="log-type-filter">
+                        <option value="all">Todos</option>
+                        <option value="ban">Bans</option>
+                        <option value="kick">Kicks</option>
+                        <option value="detection">Detecciones</option>
+                    </select>
+                </div>
+                <div class="log-entries" id="log-entries">
+                    </div>
+            </section>
+
+            <section id="stats" class="content-section">
+                <h2>Estadísticas</h2>
+                <div class="stats-grid">
+                    <div class="stat-chart">
+                        <h3>Detecciones por Tipo</h3>
+                        <canvas id="detectionsChart"></canvas>
+                    </div>
+                    <div class="stat-chart">
+                        <h3>Historial de Sanciones</h3>
+                        <canvas id="sanctionsChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section id="configs" class="content-section">
+                <h2>Carpetas de Configuración</h2>
+                <div class="config-files" id="config-files">
+                    <div class="file-item" data-file="vpn.lua">vpn.lua</div>
+                    <div class="file-item" data-file="scripts.lua">scripts.lua</div>
+                    <div class="file-item" data-file="anomaly.lua">anomaly.lua</div>
+                </div>
+                <div class="file-content-editor" id="file-content-editor">
+                    <h3>Contenido del archivo:</h3>
+                    <pre id="file-content"></pre>
+                    <button class="btn-save">Guardar Cambios</button>
+                </div>
+            </section>
+
+            <section id="api" class="content-section">
+                <h2>API del Panel</h2>
+                <p>Usa la siguiente API key en tu script de Roblox para conectar tu juego con este panel.</p>
+                <div class="api-container">
+                    <pre id="api-key-display" class="api-key-box">Cargando API Key...</pre>
+                    <button class="btn-copy" id="copy-btn"><i class="fas fa-copy"></i> Copiar</button>
+                    <p class="api-disclaimer"><strong>¡Importante!</strong> No compartas esta clave. Si la expones, genera una nueva inmediatamente.</p>
+                    <div class="api-script-download">
+                        <h3>Script para Roblox:</h3>
+                        <p>Descarga el script principal y reemplaza la API key con la tuya.</p>
+                        <a href="api/api_script.lua" download class="btn-download"><i class="fas fa-download"></i> Descargar Script</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../assets/js/panel.js"></script>
+</body>
+</html>
